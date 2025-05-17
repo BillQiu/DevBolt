@@ -20,9 +20,18 @@ importers:
       '@mastra/memory':
         specifier: 0.3.4-alpha.4
         version: 0.3.4-alpha.4(openapi-types@12.1.3)(react@19.1.0)
+      axios:
+        specifier: ^1.9.0
+        version: 1.9.0
+      figma-api:
+        specifier: 2.0.2-beta
+        version: 2.0.2-beta
       zod:
         specifier: ^3.24.4
         version: 3.24.4
+      zod-fetch:
+        specifier: ^0.1.1
+        version: 0.1.1
     devDependencies:
       '@types/node':
         specifier: ^22.15.18
@@ -1690,6 +1699,9 @@ packages:
     resolution: {integrity: sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==}
     engines: {node: '>=8.0.0'}
 
+  axios@0.30.0:
+    resolution: {integrity: sha512-Z4F3LjCgfjZz8BMYalWdMgAQUnEtKDmpwNHjh/C8pQZWde32TF64cqnSeyL3xD/aTIASRU30RHTNzRiV/NpGMg==}
+
   axios@1.9.0:
     resolution: {integrity: sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==}
 
@@ -2008,6 +2020,9 @@ packages:
   fetch-blob@3.2.0:
     resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
     engines: {node: ^12.20 || >= 14.13}
+
+  figma-api@2.0.2-beta:
+    resolution: {integrity: sha512-XWDYVee5d6s2xrB0oN0Tn9Q8+fLWMwuXw+Yyvryz2nym5XXXT/VvO7Nu8H0JdbgS4EAif568l7FVn2ufypo27w==}
 
   figures@6.1.0:
     resolution: {integrity: sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg==}
@@ -3066,6 +3081,9 @@ packages:
   yoctocolors@2.1.1:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
+
+  zod-fetch@0.1.1:
+    resolution: {integrity: sha512-1YqEhqjIQuatiHGCiKceAEzLrd2PZAN/Y8lWSlhkec2nDuImePieFWX33WSB+c1E4P/kEiai7rb8upBMdjFo1w==}
 
   zod-from-json-schema@0.0.5:
     resolution: {integrity: sha512-zYEoo86M1qpA1Pq6329oSyHLS785z/mTwfr9V1Xf/ZLhuuBGaMlDGu/pDVGVUe4H4oa1EFgWZT53DP0U3oT9CQ==}
@@ -5461,6 +5479,14 @@ snapshots:
 
   atomic-sleep@1.0.0: {}
 
+  axios@0.30.0:
+    dependencies:
+      follow-redirects: 1.15.9
+      form-data: 4.0.2
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+
   axios@1.9.0:
     dependencies:
       follow-redirects: 1.15.9
@@ -5774,6 +5800,13 @@ snapshots:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.3.3
+
+  figma-api@2.0.2-beta:
+    dependencies:
+      '@types/node': 22.15.18
+      axios: 0.30.0
+    transitivePeerDependencies:
+      - debug
 
   figures@6.1.0:
     dependencies:
@@ -6861,6 +6894,8 @@ snapshots:
       yoctocolors: 2.1.1
 
   yoctocolors@2.1.1: {}
+
+  zod-fetch@0.1.1: {}
 
   zod-from-json-schema@0.0.5:
     dependencies:
