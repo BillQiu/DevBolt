@@ -52,7 +52,7 @@ export const geminiImagePromptAgent = new Agent({
 
 你的最终输出应该是一份结构化、详细的设计与开发指南，让开发人员能够精确地复现设计意图。`,
 
-  model: google("gemini-2.5-pro-preview-05-06"),
+  model: google("gemini-2.5-pro-exp-03-25"),
 
   // 注册工具
   tools: {
