@@ -3,6 +3,7 @@ import { z } from "zod";
 import {
   IMAGE_PROMPT_TEMPLATE,
   FIGMA_PROMPT_TEMPLATE,
+  MIXED_PROMPT_TEMPLATE,
 } from "../templates/prompt-templates";
 
 /**
@@ -15,15 +16,28 @@ export const generatePagePromptTool = createTool({
   inputSchema: z.object({
     analysisResult: z.string().describe("Gemini模型的分析结果"),
     designType: z
-      .enum(["image", "figma"])
-      .describe("设计类型：普通图像或Figma设计"),
+      .enum(["image", "figma", "mixed"])
+      .describe("设计类型：普通图像、Figma设计或两者混合"),
   }),
   execute: async ({ context }) => {
     const { analysisResult, designType } = context;
 
     // 根据设计类型选择不同的模板
-    const promptTemplate =
-      designType === "figma" ? FIGMA_PROMPT_TEMPLATE : IMAGE_PROMPT_TEMPLATE;
+    let promptTemplate;
+
+    switch (designType) {
+      case "figma":
+        promptTemplate = FIGMA_PROMPT_TEMPLATE;
+        break;
+      case "image":
+        promptTemplate = IMAGE_PROMPT_TEMPLATE;
+        break;
+      case "mixed":
+        promptTemplate = MIXED_PROMPT_TEMPLATE;
+        break;
+      default:
+        promptTemplate = IMAGE_PROMPT_TEMPLATE;
+    }
 
     // 将分析结果嵌入到模板中
     const fullPrompt = promptTemplate.replace(
